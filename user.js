@@ -17,6 +17,17 @@ class User {
     this.personalIncome = this.netIncome - this.savingCost;
   }
   
+  editIncome(user, newVal){
+    this.income = newVal;
+  }
+
+  updateGoalCounts(user){
+    this.goals.forEach(goal => {
+      const addition = this.savingCost * goal.percentage;
+      this.addToGoal(goal.name, addition);
+    });
+  }
+
   updateAllVals(user) {
     const totalBillCost = this.bills.reduce((acc, bill) => acc + bill.cost, 0);
     const totalPercentage = this.goals.reduce((acc, goal) => acc + goal.percentage, 0);
@@ -24,18 +35,12 @@ class User {
     this.netIncome = this.income - totalBillCost;
     this.savingCost = this.netIncome * this.saving_perc;
     this.savingsLeft = this.savingCost * (1 - totalPercentage);
+
     this.personalIncome = this.netIncome - this.savingCost + this.savingsLeft;
-    
-    let i = 0;
-    do{
-
-      i++
-
-    } while(i<this.goals.length)
 
   }
 
-  
+
 
   addBill(billName, billCost) {
     this.bills.push({ name: billName, cost: billCost });
@@ -66,13 +71,13 @@ class User {
       this.goals[goalIndex] = { ...this.goals[goalIndex], name: newName, percentage: newPercentage };
     }
   }
-  addToGoal(goalName, addition){
+  addToGoal(goalName, addition) {
     const goalIndex = this.goals.findIndex(goal => goal.name === goalName);
     if (goalIndex !== -1) {
-      num = (this.goals[goalIndex].counter) + addition;
-      this.goals[goalIndex] = { ...this.goals[goalIndex], counter : addition};
+        this.goals[goalIndex].counter += addition;
     }
-  }
+}
+
 
 }
 
@@ -119,8 +124,11 @@ let testUser = new User('test@example.com', 'Test User', 1000, [], [], 0.1);
 testUser.addBill('Rent', 500);
 testUser.addBill('Electricity', 100);
 testUser.addGoal('Vacation', 0.2, 100);
+testUser.addGoal('Car', 0.2, 100)
 
 testUser.updateAllVals();
+testUser.updateGoalCounts();
+
 
 console.log(`Net Income: ${testUser.netIncome}, Saving Cost: ${testUser.savingCost}, Personal Income: ${testUser.personalIncome}`);
 console.log(`Savings left: ${testUser.savingsLeft}`);
