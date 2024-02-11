@@ -1,2 +1,4 @@
 # hackhers2024
-hackers project
+this is our hackhers 2024 project! 
+this is a budgeting website that helps teach you how to manage your money.
+
