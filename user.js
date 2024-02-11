@@ -118,10 +118,8 @@ function submitUserData() {
   console.log(user); // Here you would typically send this data to a server or use it in your application
 }
 
-// These methods ensure that dynamic fields are added correctly but you should consider preventing the default form submission behavior to handle data with JavaScript.
-
-
-let testUser = new User('test@example.com', 'right123', 'Test User', 1000, [], [], 0.1);
+//tester methods in order to see functionality of code
+let testUser = new User('test@example.com', 'Right123', 'Test User', 1000, [], [], 0.1);
 
 testUser.addBill('Rent', 500);
 testUser.addBill('Electricity', 100);
