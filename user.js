@@ -1,6 +1,7 @@
 class User {
-  constructor(email, name, income, bills = [], goals = [], saving_perc) {
+  constructor(email, password, name, income, bills = [], goals = [], saving_perc) {
     this.email = email;
+    this.password = password; 
     this.name = name;
     this.income = income;
     this.bills = bills;
@@ -95,9 +96,10 @@ function addGoalField() {
 
 function submitUserData() {
   const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value; 
   const name = document.getElementById('name').value;
   const income = parseFloat(document.getElementById('income').value);
-  const user = new User(email, name, income);
+  const user = new User(email, password,  name, income);
 
   document.querySelectorAll('.billName').forEach((element, index) => {
     const billCost = parseFloat(document.querySelectorAll('.billCost')[index].value);
@@ -119,7 +121,7 @@ function submitUserData() {
 // These methods ensure that dynamic fields are added correctly but you should consider preventing the default form submission behavior to handle data with JavaScript.
 
 
-let testUser = new User('test@example.com', 'Test User', 1000, [], [], 0.1);
+let testUser = new User('test@example.com', 'right123', 'Test User', 1000, [], [], 0.1);
 
 testUser.addBill('Rent', 500);
 testUser.addBill('Electricity', 100);
