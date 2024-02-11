@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('userForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission
 
-    submitUserData(); // Process the form data
+    submitUserData(email, password); // Process the form data
 
     // Redirect to 'setup.html' after processing the form data
     window.location.href = 'setup.html';
