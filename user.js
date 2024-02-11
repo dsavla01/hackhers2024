@@ -6,7 +6,18 @@ class User {
     this.bills = bills;
     this.goals = goals;
     this.saving_perc = saving_perc;
+
+
+    const totalBillCost = this.bills.reduce((acc, bill) => acc + bill.cost, 0);
+    const totalPercentage = this.goals.reduce((acc, goal) => acc + goal.percentage, 0);
+
+    this.netIncome = this.income - totalBillCost;
+    this.savingCost = this.netIncome * this.saving_perc;
+    this.savingsLeft = this.savingCost * (1 - totalPercentage);
+    this.personalIncome = this.netIncome - this.savingCost;
   }
+  
+  
 
   addBill(billName, billCost) {
     this.bills.push({ name: billName, cost: billCost });
@@ -15,6 +26,7 @@ class User {
   addGoal(goalName, goalPercentage) {
     this.goals.push({ name: goalName, percentage: goalPercentage });
   }
+
   deleteBill(billName) {
     this.bills = this.bills.filter(bill => bill.name !== billName);
   }
@@ -36,18 +48,10 @@ class User {
       this.goals[goalIndex] = { ...this.goals[goalIndex], name: newName, percentage: newPercentage };
     }
   }
+
 }
 
-let netIncome = 0;
-let savingCost = 0;
-let personalIncome = 0;
 
-function calculateFinancialMetrics(user) {
-  const totalBillCost = user.bills.reduce((acc, bill) => acc + bill.cost, 0);
-  netIncome = user.income - totalBillCost;
-  savingCost = netIncome * user.saving_perc;
-  personalIncome = netIncome - savingCost;
-}
 
 function addBillField() {
   const container = document.getElementById('billsContainer');
@@ -93,6 +97,7 @@ testUser.addGoal('Vacation', 0.2);
 
 calculateFinancialMetrics(testUser);
 console.log(`Net Income: ${netIncome}, Saving Cost: ${savingCost}, Personal Income: ${personalIncome}`);
+console.log(`Savings left: ${savingsLeft}`);
 
 calculateFinancialMetrics(testUser);
 console.log(testUser);
