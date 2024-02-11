@@ -101,6 +101,10 @@ function submitUserData() {
   const income = parseFloat(document.getElementById('income').value);
   const user = new User(email, password,  name, income);
 
+  document.getElementById('loginButton').addEventListener('click', function() {
+    window.location.href = 'setup.html'
+  });
+
   document.querySelectorAll('.billName').forEach((element, index) => {
     const billCost = parseFloat(document.querySelectorAll('.billCost')[index].value);
     if (element.value && !isNaN(billCost)) {
