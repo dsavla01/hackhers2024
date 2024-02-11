@@ -169,16 +169,19 @@ button {
 </style>   
 </head>    
 <body>    
-     <h1 style="text-align:center; color: rgb(249, 222, 244); margin-top: 100px; font-size: 50px" > savement</h1>    
-    <form>  
+    <h1 style="text-align:center; color: rgb(249, 222, 244); margin-top: 100px; font-size: 50px" >savement</h1>    
+    <form id="userForm"> 
         <div class="container">    
-            <input type="email" placeholder="username" id="email" required>    
-            <input type="password" placeholder="password" id="password" required>  
-            <a href="setup.html">
-                <button type = 'submit' id="loginButton" name=""> login </button>
-            </a>
-            <p style="text-align:center; font-family: Inconsolata;"><input type="checkbox" checked="checked"> remember me </p>
-            <p style="text-align:center"><button type="button" class="forgotpass">forgot password</button> <button type="button" class="createacc"> create an account </button> </p> 
+            <input type="email" placeholder="Email" id="email" name="username" required> 
+            <input type="password" placeholder="Password" id="password" name="password" required> 
+            <button type="submit" id="loginButton">login</button> 
+            <p style="text-align:center; font-family: Inconsolata;">
+                <input type="checkbox" checked="checked"> remember me
+            </p>
+            <p style="text-align:center">
+                <button type="button" class="forgotpass">forgot password</button> 
+                <button type="button" class="createacc">create an account</button>
+            </p> 
         </div>  
         <div id="clouds">
             <div class="cloud x1"></div>
@@ -186,7 +189,7 @@ button {
             <div class="cloud x3"></div>
             <div class="cloud x4"></div>
             <div class="cloud x5"></div>
-            </div>
+        </div>
     </form>
     <script src="user.js"></script>     
 </body>     

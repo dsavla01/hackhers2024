@@ -77,12 +77,8 @@ class User {
     if (goalIndex !== -1) {
         this.goals[goalIndex].counter += addition;
     }
+  }
 }
-
-
-}
-
-
 
 function addBillField() {
   const container = document.getElementById('billsContainer');
@@ -121,6 +117,17 @@ function submitUserData() {
 
   console.log(user); // Here you would typically send this data to a server or use it in your application
 }
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('userForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    submitUserData(); // Process the form data
+
+    // Redirect to 'setup.html' after processing the form data
+    window.location.href = 'setup.html';
+  });
+});
+
 
 //tester methods in order to see functionality of code
 let testUser = new User('test@example.com', 'Right123', 'Test User', 1000, [], [], 0.1);
