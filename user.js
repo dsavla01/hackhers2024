@@ -89,6 +89,16 @@ function addGoalField() {
   const container = document.getElementById('goalsContainer');
   container.innerHTML += 'Goal Name: <input type="text" class="goalName"><br>Goal Percentage: <input type="number" class="goalPercentage"><br>';
 }
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('userForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      submitUserData(); // Function to process form data
+
+      // Assuming submitUserData does not involve asynchronous operations:
+      window.location.href = 'setup.html'; // Redirect after processing
+  });
+});
 
 function submitUserData() {
   const email = document.getElementById('email').value;
@@ -117,17 +127,6 @@ function submitUserData() {
 
   console.log(user); // Here you would typically send this data to a server or use it in your application
 }
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('userForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    submitUserData(email, password); // Process the form data
-
-    // Redirect to 'setup.html' after processing the form data
-    window.location.href = 'setup.html';
-  });
-});
-
 
 //tester methods in order to see functionality of code
 let testUser = new User('test@example.com', 'Right123', 'Test User', 1000, [], [], 0.1);
