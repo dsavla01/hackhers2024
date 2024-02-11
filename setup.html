@@ -1,106 +1,189 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link href='https://fonts.googleapis.com/css?family=Geologica' rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet'>
-<title>Setup Page</title>
-<style>
-Body {
-    font-family: 'Geologica';
-    background-color: rgb(170, 170, 239);
-    height: 100vh;
-    margin: 0;
-}
+<!DOCTYPE html>   
+<html>   
+<head>  
+<link href='https://fonts.googleapis.com/css?family=Geologica' rel='stylesheet'>  
+<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet'>  
+<title> Login Page </title>  
+<style>   
+Body {  
+    font-family: 'Geologica';  
+  background-color: rgb(170, 170, 239);  
+}  
+div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+      }
+button {   
+       background-color: #5454f1;   
+       width: 50px;  
+        color: rgb(249, 222, 244);   
+        padding: 15px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;
+        border-radius: 12px; 
+        font-family: 'Inconsolata'  
+         }   
+ form {   
+        border: 3px solid #6812f4; 
+        border-radius: 12px;
+        border: none
+  
+    }   
 
-.container {
-    position: relative; /* Set to relative so absolute children are positioned relative to this */
-    width: 100%;
-    height: 100vh;
-}
-
-button {
-    position: absolute;
-    background-color: #5454f1;
-    color: rgb(249, 222, 244);
-    padding: 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 12px;
-    font-family: 'Inconsolata';
-    /* Set button position here using top, left, etc. */
-}
-
-input[type=text], input[type=password], input[type=goal], input[type=number] {
-    position: absolute; /* Make the inputs absolutely positioned */
-    width: 200px; /* Set a specific width */
-    padding: 12px 20px;
-    border: 2px solid rgb(105, 65, 250);
-    box-sizing: border-box;
-    border-radius: 12px;
-    font-family: 'Inconsolata';
-    font-size: 16px;
-}
-
-/* Position the username input */
-#income {
-    top: 50%; /* Adjust as needed */
-    left: 25%; /* Adjust as needed */
-    right: 25%;
-    bottom: 50%;
-    height:50px;
-    width:200px;
-}
-
-/* Position the password input */
-#bill {
-    top: 60%; /* Adjust as needed */
-    left: 50%; /* Adjust as needed */
-    right: 50%;
-    bottom: 50%;
-    height:50px;
-    width:200px;
-}
-
-#saving {
-    top: 10%; /* Adjust as needed */
-    left: 10%; /* Adjust as needed */
-    right: 50%;
-    bottom: 50%;
-    height:50px;
-    width:200px;
-}
-
-#goal {
-    top: 20%; /* Adjust as needed */
-    left: 10%; /* Adjust as needed */
-    right: 50%;
-    bottom: 50%;
-    height:50px;
-    width:200px;
-}
-
-#name {
-    top: 20%; /* Adjust as needed */
-    left: 10%; /* Adjust as needed */
-    right: 50%;
-    bottom: 50%;
-    height:50px;
-    width:200px;
-}
-
-</style>
-</head>
-<body>
-<div class="container">
-    <form>
-        <input type="text" id="name" placeholder="name" name="name" required>
-        <input type="text" id="income" placeholder="income" name="income" required>
-        <input type="text" id="bill" placeholder="bill?" name="bill" required>
-        <input type="text" id="goal" placeholder="goal " name="goal" required>
-        <input type="text" id="saving" placeholder="saving %  " name="saving" required>
+ input[type=text], input[type=password], input[type=email], input[type=number] {      
+        margin: 8px 10px;  
+        padding: 12px 20px;   
+        display: inline-block;   
+        border: 2px solid rgb(105, 65, 250);   
+        box-sizing: border-box; 
+        border-radius: 12px; 
+        font-family: 'Inconsolata';
+        width: 350px;  
+    }  
+ button:hover {   
+        opacity: 0.7;   
+    } 
+    *{ margin: 0; padding: 0;}
+    .container {   
+        padding: 25px;   
+        background-color: rgb(255, 255, 255);
+        border-radius: 12px; 
+        width: 1150px;
+        height: 450px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);}   
+#clouds{
+	padding: 100px 0;
+	background: rgb(170, 170, 239);
+	background: -webkit-linear-gradient(top, rgb(170, 170, 239), 0%, #fff 100%);
+	background: -linear-gradient(top, rgb(170, 170, 239), 0%, #fff 100%);
+	background: -moz-linear-gradient(top, rgb(170, 170, 239), 0%, #fff 100%);
+    overflow:hidden;
     
-        <!-- Position your button as needed -->
-    </form>
-</div>
-</body>
+}
+.cloud {
+	width: 200px; height: 60px;
+	background: #fff;
+	border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	position: absolute;
+}
+.cloud:before, .cloud:after {
+	content: '';
+	position: absolute;
+	background: #fff;
+	width: 100px; height: 60px;
+	position: absolute; top: -15px; left: 10px;
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+    
+}
+.cloud:after {
+	width: 120px; height: 120px;
+	top: -55px; left: auto; right: 15px;
+}
+
+.x1 {
+	-webkit-animation: moveclouds 10s linear infinite;
+	-moz-animation: moveclouds 10s linear infinite;
+	-o-animation: moveclouds 10s linear infinite;
+    transform: translate(0%, 1000%);
+}
+
+.x2 {
+	left: 200px;
+	-webkit-transform: scale(0.6);
+	-moz-transform: scale(0.6);
+	transform: scale(0.6);
+	opacity: 0.6; /*opacity proportional to the size*/
+	/*Speed will also be proportional to the size and opacity*/
+	/*More the speed. Less the time in 's' = seconds*/
+	-webkit-animation: moveclouds 25s linear infinite;
+	-moz-animation: moveclouds 25s linear infinite;
+	-o-animation: moveclouds 25s linear infinite;
+    transform: translate(0%, 1100%);
+}
+.x3 {
+	left: -250px; top: -100px;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	-webkit-animation: moveclouds 20s linear infinite;
+	-moz-animation: moveclouds 20s linear infinite;
+	-o-animation: moveclouds 20s linear infinite;
+    transform: translate(0%, 1300%);
+}
+.x4 {
+	left: 470px; top: -100px;
+	-webkit-transform: scale(0.75);
+	-moz-transform: scale(0.75);
+	transform: scale(0.75);
+	opacity: 0.75; /*opacity proportional to the size*/
+	-webkit-animation: moveclouds 18s linear infinite;
+	-moz-animation: moveclouds 18s linear infinite;
+	-o-animation: moveclouds 18s linear infinite;
+    transform: translate(0%, 1500%);
+}
+.x5 {
+	left: -150px; top: -150px;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	-webkit-animation: moveclouds 20s linear infinite;
+	-moz-animation: moveclouds 20s linear infinite;
+	-o-animation: moveclouds 20s linear infinite;
+    transform: translate(0%, 1600%);
+}
+@-webkit-keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+@-moz-keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+@-o-keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+} 
+      
+</style>   
+</head>    
+<body>    
+     <h1 style="text-align:center; color: rgb(249, 222, 244); margin-top: 25px; font-size: 50px" > new user setup </h1>    
+    <form>  
+        <div class="container">  
+           <p class="split-para"> <label>name:  </label>  
+            <input type="text" placeholder="Jane Doe" name="Jane Doe" required> <span style="float: center"> <label> saving % </label> <input type="text" placeholder="0.5" name="0.5" required> </span> </p>  
+            <p class="split-para"><label>income:</label> 
+            <input type="text" placeholder="10000" name="10000" required> <span style="float: center"><label>goal:</label> <input type="text" placeholder="Concert" name="Concert"></p> </span> </p>
+            <p class="split-para"><label>bill:</label>  
+            <input type="text" placeholder="Rent" name="Rent"><span style="float: center"><input type="text" placeholder="1000" name="1000"></span></p>
+            <p style="margin-left: 154px"><input type="text" placeholder="1000" name="1000"> </p>
+            <p style="text-align:center; margin-top: 170px"><button type="button">save</button> </p>   
+            <p style="text-align:center; margin-top: 170px"><button type="button">save</button> </p> 
+        </div> 
+        <div id="clouds">
+            <div class="cloud x1"></div>
+            <div class="cloud x2"></div>
+            <div class="cloud x3"></div>
+            <div class="cloud x4"></div>
+            <div class="cloud x5"></div>
+            </div>
+    </form>     
+</body>     
 </html>
