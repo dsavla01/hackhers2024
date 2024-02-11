@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Geologica' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet'>
+<title>Setup Page</title>
+<style>
+Body {
+    font-family: 'Geologica';
+    background-color: rgb(170, 170, 239);
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    position: relative; /* Set to relative so absolute children are positioned relative to this */
+    width: 100%;
+    height: 100vh;
+}
+
+button {
+    position: absolute;
+    background-color: #5454f1;
+    color: rgb(249, 222, 244);
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    font-family: 'Inconsolata';
+    /* Set button position here using top, left, etc. */
+}
+
+input[type=text], input[type=password], input[type=goal], input[type=number] {
+    position: absolute; /* Make the inputs absolutely positioned */
+    width: 200px; /* Set a specific width */
+    padding: 12px 20px;
+    border: 2px solid rgb(105, 65, 250);
+    box-sizing: border-box;
+    border-radius: 12px;
+    font-family: 'Inconsolata';
+    font-size: 16px;
+}
+
+/* Position the username input */
+#income {
+    top: 50%; /* Adjust as needed */
+    left: 25%; /* Adjust as needed */
+    right: 25%;
+    bottom: 50%;
+    height:50px;
+    width:200px;
+}
+
+/* Position the password input */
+#bill {
+    top: 60%; /* Adjust as needed */
+    left: 50%; /* Adjust as needed */
+    right: 50%;
+    bottom: 50%;
+    height:50px;
+    width:200px;
+}
+
+#saving {
+    top: 10%; /* Adjust as needed */
+    left: 10%; /* Adjust as needed */
+    right: 50%;
+    bottom: 50%;
+    height:50px;
+    width:200px;
+}
+
+#goal {
+    top: 20%; /* Adjust as needed */
+    left: 10%; /* Adjust as needed */
+    right: 50%;
+    bottom: 50%;
+    height:50px;
+    width:200px;
+}
+
+#name {
+    top: 20%; /* Adjust as needed */
+    left: 10%; /* Adjust as needed */
+    right: 50%;
+    bottom: 50%;
+    height:50px;
+    width:200px;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+    <form>
+        <input type="text" id="name" placeholder="name" name="name" required>
+        <input type="text" id="income" placeholder="income" name="income" required>
+        <input type="text" id="bill" placeholder="bill?" name="bill" required>
+        <input type="text" id="goal" placeholder="goal " name="goal" required>
+        <input type="text" id="saving" placeholder="saving %  " name="saving" required>
+    
+        <!-- Position your button as needed -->
+    </form>
+</div>
+</body>
+</html>
