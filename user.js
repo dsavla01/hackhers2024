@@ -76,7 +76,7 @@ function submitUserData() {
     const goalPercentage = parseFloat(document.querySelectorAll('.goalPercentage')[index].value);
     if (element.value && !isNaN(goalPercentage)) {
       user.addGoal(element.value, goalPercentage);
-    }
+    }//asdf
   });
 
   console.log(user); // Here you would typically send this data to a server or use it in your application
